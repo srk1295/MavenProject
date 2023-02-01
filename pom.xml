@@ -182,12 +182,12 @@
     <repository>
         <id>central</id>
         <name>jfrog-releases</name>
-        <url>http://localhost:8081/artifactory/sample-maven</url>
+        <url>http://localhost:8080/artifactory/sample-maven</url>
     </repository>
     <snapshotRepository>
         <id>snapshots</id>
         <name>jfrog-snapshots</name>
-        <url>http://localhost:8081/artifactory/sample-maven</url>
+        <url>http://localhost:8080/artifactory/sample-maven</url>
     </snapshotRepository>
 </distributionManagement>
 	
