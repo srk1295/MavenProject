@@ -2,8 +2,8 @@ pipeline {
     agent any
         maven home'maven'
         java home 'java'
-    }
-        }
+            }
+       }
         
         stage('Cloning Git') {
             steps {
