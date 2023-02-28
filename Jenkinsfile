@@ -3,23 +3,6 @@ pipeline {
         maven home'maven'
         java home 'java'
     }
-    environment {
-        AWS_ACCOUNT_ID="174609780267"
-        AWS_DEFAULT_REGION="us-west-1" 
-        IMAGE_REPO_NAME="pipeline"
-        IMAGE_TAG= "latest"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-    }
-   
-    stages {
-        
-         stage('Logging into AWS ECR') {
-            steps {
-                script {
-                sh "aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-                }
-                 
-            }
         }
         
         stage('Cloning Git') {
@@ -59,9 +42,6 @@ pipeline {
         sh 'chmod u+x ./kubectl'  
         sh "./kubectl apply -f eksdeploy.yml"
 
-         }
-        }
-     }
-  }
+      }
+   }
 }
-   
